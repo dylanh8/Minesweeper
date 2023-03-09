@@ -216,15 +216,10 @@ public class MSButton
         clicked = true;
        
         if(mouseButton==RIGHT){
-          boolean change=false;
-          if(flagged==true){
-       
-          }
-          if(flagged==false){
-            change=true;
-            clicked=false;
-          }
-          flagged=change;
+         flagged=!flagged;
+         if(flagged==false){
+           clicked=false;
+         }
          
         }
        
@@ -266,11 +261,12 @@ public class MSButton
  
     public void draw ()
     {    
-        if (flagged){
+       if (isFlagged()){
             fill(255, 0, 0);
-           
-        }
-         if( clicked && mines.contains(this) ){
+       }
+       
+       
+         else if( clicked && mines.contains(this) ){
            
          fill(255, 0, 0);
             for(int i=0; i<mines.size(); i++){
@@ -289,6 +285,9 @@ public class MSButton
             fill( 200 );
            
         }
+        
+           
+        
         else{
          fill(100);}
 
@@ -299,6 +298,7 @@ public class MSButton
        
        
 }
+
 
 
    
